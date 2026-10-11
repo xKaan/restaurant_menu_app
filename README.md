@@ -15,8 +15,8 @@ DS Flutter Layouts & Scrolls : application mobile affichant le menu d'un snack d
 - `lib/widgets/plat_card.dart` : widget réutilisable pour afficher un plat
 
 ## Captures
-![Capture](screenshots/capture.png)
-![Capture paysage](screenshots/capture_paysage.png)
+![Capture](screenshots/capture_vertical.png)
+![Capture paysage](screenshots/capture_horizontal.png)
 
 ## Vidéo
 [Voir la démo](screenshots/demo.webm)
@@ -25,4 +25,4 @@ DS Flutter Layouts & Scrolls : application mobile affichant le menu d'un snack d
 flutter pub get
 flutter run
 
-Auteur : Kaan T.
+Auteur : Kaan Topkaya
