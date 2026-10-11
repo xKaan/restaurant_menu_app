@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/plat.dart';
 
 // card pour afficher tous les plats, réutilisable partout dans l'application
@@ -27,7 +28,10 @@ class PlatCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(plat.nom, style: const TextStyle(fontWeight: FontWeight.bold)),
+                  Text(
+                    plat.nom,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   Text(plat.description, maxLines: 2),
                   Text('${plat.prix} €'),
                 ],

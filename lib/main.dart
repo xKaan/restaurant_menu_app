@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'data/menu_data.dart';
 import 'widgets/plat_card.dart';
 
@@ -40,8 +41,9 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     // on garde que les plats de la catégorie sélectionnée
-    final platsFiltres =
-    plats.where((plat) => plat.categorie == categorieSelectionnee).toList();
+    final platsFiltres = plats
+        .where((plat) => plat.categorie == categorieSelectionnee)
+        .toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -84,7 +86,8 @@ class _MenuPageState extends State<MenuPage> {
               // ListView.builder construit que les cartes visibles à l'écran
               child: ListView.builder(
                 itemCount: platsFiltres.length,
-                itemBuilder: (context, index) => PlatCard(plat: platsFiltres[index]),
+                itemBuilder: (context, index) =>
+                    PlatCard(plat: platsFiltres[index]),
               ),
             ),
           ],

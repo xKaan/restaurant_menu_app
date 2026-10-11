@@ -131,5 +131,5 @@ const List<Plat> plats = [
     prix: 2.00,
     image: 'assets/images/soda.jpg',
     categorie: 'Boissons',
-  )
+  ),
 ];
