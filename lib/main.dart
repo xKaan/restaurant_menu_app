@@ -49,43 +49,46 @@ class _MenuPageState extends State<MenuPage> {
         backgroundColor: Colors.deepOrange,
         foregroundColor: Colors.white,
       ),
-      // column : la barre des catégories en haut, la liste des plats en dessous
-      body: Column(
-        children: [
-          // row placé dans un SingleChildScrollView horizontal, pour pouvoir faire défiler les catégories si elles dépassent la largeur de l'écran
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.all(8),
-            child: Row(
-              // un bouton par catégorie
-              children: categories.map((categorie) {
-                return Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  // choicechip : étiquette cliquable qui montre si elle est sélectionnée
-                  child: ChoiceChip(
-                    label: Text(categorie),
-                    selected: categorie == categorieSelectionnee,
-                    onSelected: (_) {
-                      // setState met à jour la catégorie et redessine l'écran ce qui relance le filtre des plats
-                      setState(() {
-                        categorieSelectionnee = categorie;
-                      });
-                    },
-                  ),
-                );
-              }).toList(),
+      // safearea : évite que le contenu passe sous l'encoche en mode paysage (les photos du menu)
+      body: SafeArea(
+        // column : la barre des catégories en haut, la liste des plats en dessous
+        child: Column(
+          children: [
+            // row placé dans un SingleChildScrollView horizontal, pour pouvoir faire défiler les catégories si elles dépassent la largeur de l'écran
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.all(8),
+              child: Row(
+                // un bouton par catégorie
+                children: categories.map((categorie) {
+                  return Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    // choicechip : étiquette cliquable qui montre si elle est sélectionnée
+                    child: ChoiceChip(
+                      label: Text(categorie),
+                      selected: categorie == categorieSelectionnee,
+                      onSelected: (_) {
+                        // setState met à jour la catégorie et redessine l'écran ce qui relance le filtre des plats
+                        setState(() {
+                          categorieSelectionnee = categorie;
+                        });
+                      },
+                    ),
+                  );
+                }).toList(),
+              ),
             ),
-          ),
 
-          // Liste des plats, scroll vertical.
-          Expanded(
-            // ListView.builder construit que les cartes visibles à l'écran
-            child: ListView.builder(
-              itemCount: platsFiltres.length,
-              itemBuilder: (context, index) => PlatCard(plat: platsFiltres[index]),
+            // Liste des plats, scroll vertical.
+            Expanded(
+              // ListView.builder construit que les cartes visibles à l'écran
+              child: ListView.builder(
+                itemCount: platsFiltres.length,
+                itemBuilder: (context, index) => PlatCard(plat: platsFiltres[index]),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

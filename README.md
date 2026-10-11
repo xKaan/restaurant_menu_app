@@ -1,17 +1,28 @@
-# restaurant_menu_app
+# Crispy Chick - Menu de restaurant (Flutter)
 
-A new Flutter project.
+DS Flutter Layouts & Scrolls : application mobile affichant le menu d'un snack de poulet.
 
-## Getting Started
+## Fonctionnalités
+- Catégories défilables horizontalement (Menus, Burgers, Tenders, Desserts, Boissons)
+- Sélection d'une catégorie pour afficher ses plats
+- Chaque plat est affiché dans une carte : image, nom, description et prix
+- Fonctionne en mode portrait et paysage
 
-This project is a starting point for a Flutter application.
+## Organisation du code
+- `lib/main.dart` : écran principal (AppBar, barre de catégories, liste des plats)
+- `lib/models/plat.dart` : classe `Plat`
+- `lib/data/menu_data.dart` : catégories et plats codés en dur
+- `lib/widgets/plat_card.dart` : widget réutilisable pour afficher un plat
 
-A few resources to get you started if this is your first Flutter project:
+## Captures
+![Capture](screenshots/capture.png)
+![Capture paysage](screenshots/capture_paysage.png)
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Vidéo
+[Voir la démo](screenshots/demo.webm)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Lancer le projet
+flutter pub get
+flutter run
+
+Auteur : Kaan T.
