@@ -20,7 +20,53 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: Colors.deepOrange, // couleur principale de l'appli
         useMaterial3: true,
       ),
-      home: const MenuPage(),
+      home: const SplashScreen(),
+    );
+  }
+}
+
+// écran de chargement affiché au lancement de l'app
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // après 2 secondes on passe au menu
+    Future.delayed(const Duration(seconds: 2), () {
+      if (!mounted) return; // sécurité si l'écran a été fermé entre temps
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const MenuPage()),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      backgroundColor: Colors.deepOrange,
+      // center + column : logo, nom et roue de chargement centrés à l'écran
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min, // la column prend juste la place de son contenu
+          children: [
+            Icon(Icons.fastfood, size: 100, color: Colors.white),
+            SizedBox(height: 16),
+            Text(
+              'Crispy Chick',
+              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+            SizedBox(height: 32),
+            CircularProgressIndicator(color: Colors.white), // roue de chargement
+          ],
+        ),
+      ),
     );
   }
 }

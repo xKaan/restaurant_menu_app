@@ -7,6 +7,7 @@ DS Flutter Layouts & Scrolls : application mobile affichant le menu d'un snack d
 - Sélection d'une catégorie pour afficher ses plats
 - Chaque plat est affiché dans une carte : image, nom, description et prix
 - Fonctionne en mode portrait et paysage
+- Ecran de chargement au lancement, même si celui de Flutter empiète un peu, j'aurai essayé ...
 
 ## Organisation du code
 - `lib/main.dart` : écran principal (AppBar, barre de catégories, liste des plats)
